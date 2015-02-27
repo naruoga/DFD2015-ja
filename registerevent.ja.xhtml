@@ -1,0 +1,84 @@
+<html>
+
+<head>
+	<title>DFD - Register your event</title>
+
+	<meta name="cc-license" content="Geocoding data, © 2012 OpenStreetMap Contributors, used under a Creative Commons Attribution Share-Alike 2.0 Generic license"/>
+
+	<script type="text/javascript" src="/scripts/geocoding.js"></script>
+</head>
+
+<body class="registerevent dfd">
+
+    <div class="intro">
+
+	<h1>イベントを登録しよう</h1>
+
+	<p>このフォームを埋めてもらえると、あなたのイベントを<a href="/events/">地図</a>上で宣伝できます。
+	あるいは私たちに直接<a href="/contact.en.html">連絡</a>いただくこともできます。</p>
+	
+	
+    </div>
+
+	<form action="/cgi-bin/registerevent.php" method="POST" class="register_event" enctype="multipart/form-data">
+
+		<input type="hidden" name="register_event" />
+
+		<!--<fieldset id="register_event">-->
+
+			<div><label for="name">あなたの名前 *</label><input type="text" name="name" value="" required="required"/></div>
+			<div><label for="email">Eメール *</label><input type="email" name="email" value="" required="required"/></div>
+			<div><label for="groupname">グループ名</label><input type="text" name="groupname" value="" /></div>
+			<div><label for="groupurl">グループのURL</label><input type="url" name="groupurl" value=""/></div>
+			<div><label for="twitteraccount">ソーシャルメディアのアカウント (Diaspora, Identi.ca, Twitter, ...)</label><input type="text" name="twitteraccount" value="" /></div>
+			<div><label for="logo">ロゴ</label><input type="file" name="logo"/></div>
+
+			<div><label for="title">イベント名 *</label><input type="text" name="title" value="" required="required"/></div>
+			<div><label for="date">日付 (yyyy-mm-dd) *</label><input type="date" name="date" value="" required="required"/></div>
+			<div>
+				<label for="description" style="vertical-align: top;">詳細 *</label>
+
+				<div>
+				        <p>DFDであなたがどんなことをするのか説明してください。
+				        何かトークをやるのか、賞の授与か、それともパーティ？
+				        タイムテーブルがあるなら載せてください。
+				        このフィールドにはHTMLタグが使えます。
+				        例として<a href="/events/">イベントページ</a>を見てください。</p>
+				        <p>DFDが何かということについては書かないでください。それについてはこのウェブサイトの他のところで説明しています。</p>
+
+					<textarea name="description" required="required"></textarea>
+				</div>
+			</div>
+			<div><label for="url">URL</label><input type="url" name="url" value="" /></div>
+			<div>
+				<label for="location">場所</label><input type="text" name="location" value="" onkeyup="geocode(this.value)"/>
+
+				<div>
+				        <p>最も適した場所を選んでください。
+				        この情報から地図上のどこに表示するかが決まります。</p>
+
+					<select id="geocode_select" name="geodata"></select>
+
+					<noscript>
+						<p><strong>この機能を利用するにはjavascriptを有効にする必要があります。</strong></p>
+					</noscript>
+
+				</div>
+			</div>
+
+		<!--</fieldset>-->
+
+	<!-- Should help against spam -->
+	<p class="n">
+		ここには何も書かないでください:
+		<input type="text" size="40" name="spam"/>
+	</p>
+		<p>* はイベントの登録に必須の項目です</p>
+		
+		<p><strong>プライバシー:</strong> Your details will be used solely by Document Freedom Day to contact you about your promotional pack. They will never be shared with any third party. (あなたの詳細な情報はDocument Freedom Dayのためだけに、あなた向けのプロモーション用パックについて連絡するためだけに用いられます。第三者に提供されたりはしません。)</p>
+		
+		<input type="submit" value="Add event" name="submit"/>
+	</form>
+</body>
+
+</html>
